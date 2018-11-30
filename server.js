@@ -58,7 +58,7 @@ app.delete('/deleteUser', function(req, res){
         data = JSON.parse(data);
         delete data["user" + 2];
         //display in log data of
-        console.log("delete user" + data);
+        console.log("delete user" + JSON.stringify(data));
         res.send(JSON.stringify(data));
     });
 })
