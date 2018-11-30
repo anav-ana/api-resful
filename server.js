@@ -23,6 +23,20 @@ app.get('/listUsers', function(req, res){
     });
 })
 
+
+app.get('/:id', function(req, res){
+    fs.readFile(__dirname + "/" + "users.json", 'utf-8', function (err, data){
+        if(err) throw err;
+        //variable user will containthe result of users informations to retrieve all ressource
+        let users = JSON.parse(data);
+        //variable user will retrieve user information by id
+        let user = users["user"+ req.params.id]
+        //display user information by id
+        console.log("user info by id: " + JSON.stringify(user));
+        res.send(JSON.stringify(data));
+    });
+})
+
 /*
 *
 *method > addUsers
